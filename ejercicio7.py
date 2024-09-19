@@ -52,18 +52,16 @@ class Persona:
     def esMayorDeEdad(self):
         return self.edad >= 18
 
-    # Método para generar el DNI (privado)
     def __generaDNI(self):
         numero_dni = random.randint(10000000, 99999999)
         letra = self.__calculaLetraDNI(numero_dni)
         return f"{numero_dni}{letra}"
 
-    # Método auxiliar para calcular la letra del DNI (privado)
     def __calculaLetraDNI(self, numero):
         letras = "TRWAGMYFPDXBNJZSQVHLCKE"
         return letras[numero % 23]
 
-    def toString(self):
+    def __str__(self):
         return (f"Nombre: {self.nombre}, Edad: {self.edad}, Sexo: {self.sexo}, "
                 f"Peso: {self.peso}kg, Altura: {self.altura}m, DNI: {self.__dni}")
 
